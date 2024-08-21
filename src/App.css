@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0px;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App {
+  width: 1000px;
+  margin: 50px auto 0 auto;
+}
+
+.searchBox {
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid #00aeff;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+}
+
+.inputBox{
+  height: 60px;
+  font-size: 25px;
+  padding: 0 20px;
+  letter-spacing: 1px;
+  color: #00aeff79;
+}
+
+.searchBox i{
+  line-height: 60px;
+  background-color: #00aeff;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
+}
+.searchBox i:hover{ color: #1100ff; cursor: pointer; }
+
+.ListItemContainer { margin-top: 50px; height: 450px; overflow: scroll; }
+.ListItemContainer::-webkit-scrollbar { width: 0; }
+
+.ListItemContainer fieldset {
+  width: 998px;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ListItemContainer fieldset legend {
+  border: 1px solid #ccc;
+  padding: 0 5px;
+  border-radius: 10px;
+  color: #ccc;
+}
+
+.ListItemContainer fieldset p {
+  width: 800px;
+  font-size: 20px;
+}
+
+.ListItemContainer fieldset input {
+  width: 800px;
+  font-size: 20px;
+  background-color: #f0f0f0;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.ListItemContainer fieldset i {
+  width: 60px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 0 10px;
+  border-radius: 10px;
+  margin-top: -10px;
+  line-height: 45px;
+}
+
+.ListItemContainer fieldset i:nth-child(odd){ background-color: #00ff00; }
+.ListItemContainer fieldset i:nth-child(odd):hover{ background-color: #016e01; cursor: pointer; }
+.ListItemContainer fieldset i:nth-child(even){ background-color: red; }
+.ListItemContainer fieldset i:nth-child(even):hover{ background-color: #860000; cursor: pointer; }
