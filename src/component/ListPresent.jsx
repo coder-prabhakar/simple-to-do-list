@@ -8,8 +8,8 @@ export default function ListPresent({data, deleteItem, editList}){
             {data.map((item, index) => (
                 <fieldset>
                     <legend>{showDate}</legend>
-                    {item}
-                    <i className="editBtn fa-solid fa-pencil" onClick={() => { editList(item.props.children,index) }}></i>
+                    {item.userInput}
+                    <i className={item.editClassname} onClick={() => {editList(index)}}>{item.saveText}</i>
                     <i className="fa-solid fa-trash" onClick={() => { deleteItem(item)}}></i>
                 </fieldset>
             ))}

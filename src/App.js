@@ -10,7 +10,11 @@ function App() {
   const [data, setData] = useState([]);
 
   function createList(value){
-    setData((prev) => [...prev,value]);
+    setData((prev) => [...prev,{
+      userInput:value,
+      editClassname:'editBtn fa-solid fa-pencil',
+      saveText: null
+    }]);
   }
 
   function deleteItem(value){
@@ -19,29 +23,29 @@ function App() {
   }
 
   //edit and update
-  function editList(text,index){
-    var allEditBtn = document.querySelectorAll(".editBtn");
-    var inputId = uuid();
+  function editList(index){
     const newArray = [...data];
-    if(allEditBtn[index].classList.contains("fa-pencil")){
-      newArray[index] = <input type="text" id={inputId}/>;
-      setData(newArray)
+
+    if(data[index].editClassname === 'editBtn fa-solid fa-pencil'){
+      newArray[index] = {
+        userInput: <input type='text'/>,
+        editClassname:'editBtn saveBtn',
+        saveText: 'SAVE'
+      }
+      var currentText = data[index].userInput.props.children;
       setTimeout(()=>{
-        const inputEle = document.getElementById(inputId);
-        inputEle.value = text;
+        const inputEle = document.querySelector('.ListItemContainer').children[index].children[1];
+        inputEle.value = currentText;
       },50)
-      allEditBtn[index].classList.remove("fa-pencil");
-      allEditBtn[index].textContent = "save";
-      allEditBtn[index].style.fontSize = "14px";
-    } else if(allEditBtn[index].textContent === "save"){
-      allEditBtn[index].textContent = "";
-      allEditBtn[index].style.fontSize = "20px";
-      allEditBtn[index].classList.add("fa-pencil");
-      const everyList = document.querySelectorAll("fieldset");
-      let inputContent = everyList[index].children[1].value;
-      newArray[index] = <p>{inputContent}</p>;
-      setData(newArray)
-    }    
+    } else {
+      newArray[index] = {
+        userInput: <p>{document.querySelector('.ListItemContainer').children[index].children[1].value}</p>,
+        editClassname:'editBtn fa-solid fa-pencil',
+        saveText: ''
+      }
+    }
+
+    setData(newArray)
   }
   
   return (
